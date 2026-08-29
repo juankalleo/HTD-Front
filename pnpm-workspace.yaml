@@ -1,0 +1,8 @@
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver
+onlyBuiltDependencies:
+  # Baixa o Chromium headless que o PDF de relatório (Puppeteer) usa — ver
+  # docs/RELATORIOS.md. Sem isso o `pnpm install` bloqueia o postinstall e
+  # `puppeteer.launch()` falha em runtime por falta do binário.
+  - puppeteer

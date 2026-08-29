@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark,
+    corporate,
+    business,
+    cupcake,
+    emerald,
+    garden,
+    winter,
+    nord,
+    dim,
+    retro,
+    lofi;
+}
+
+:root {
+  /* Escala institucional (features/admin/config-institucional) — 1 = 100%.
+     Sobrescrita via inline style no <html>, em app/layout.tsx. Multiplica
+     toda a escala tipográfica de uma vez, por isso os --font-size-* viram
+     calc() em vez de px fixo. */
+  --app-scale: 1;
+  /* Largura da sidebar e altura da topbar — institucional, arrastável (ver
+     AppShellPreview em features/admin/config-institucional). Independente
+     do --app-scale: aqui é posição/tamanho de layout, não tipografia. */
+  --sidebar-width: 288px;
+  --topbar-height: 64px;
+  --font-size-xs: calc(12px * var(--app-scale));
+  --font-size-sm: calc(14px * var(--app-scale));
+  --font-size-base: calc(16px * var(--app-scale));
+  --font-size-lg: calc(18px * var(--app-scale));
+  --font-size-xl: calc(20px * var(--app-scale));
+  --font-size-2xl: calc(24px * var(--app-scale));
+  --font-size-3xl: calc(30px * var(--app-scale));
+  /* Tamanho do <h1> de página (shared/ui/sistema/page-title.tsx) —
+     institucional, independente de --app-scale (que já multiplica todo
+     --font-size-* de qualquer forma, então o título também escala junto;
+     este var só escolhe QUAL --font-size-* de base). Default = igual ao
+     text-2xl de sempre, pra não mudar nada em quem nunca configurou isso. */
+  --page-title-size: var(--font-size-2xl);
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  /* Escala institucional também no --spacing do Tailwind (base de todo
+     padding, margin, gap, width e height utility) — cresce/encolhe o layout
+     inteiro junto com a tipografia. Não alcança os tokens internos do
+     DaisyUI (size/radius de componente), que têm escala própria — fora de
+     escopo. */
+  --spacing: calc(0.25rem * var(--app-scale));
+  --text-xs: var(--font-size-xs);
+  --text-sm: var(--font-size-sm);
+  --text-base: var(--font-size-base);
+  --text-lg: var(--font-size-lg);
+  --text-xl: var(--font-size-xl);
+  --text-2xl: var(--font-size-2xl);
+  --text-3xl: var(--font-size-3xl);
+  --font-regular: var(--font-weight-regular);
+  --font-medium: var(--font-weight-medium);
+  --font-semibold: var(--font-weight-semibold);
+  --font-bold: var(--font-weight-bold);
+}
+
+body {
+  font-family: var(--font-sans);
+}
