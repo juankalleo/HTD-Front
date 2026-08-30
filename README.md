@@ -31,9 +31,6 @@ lib/        auth, formatação, rotas e utilidades de servidor
 docs/       documentação real de cada padrão implementado
 ```
 
-Ver [`docs/CONTEXTO.md`](docs/CONTEXTO.md) para o histórico completo de
-decisões e [`docs/ROADMAP.md`](docs/ROADMAP.md) para o que já foi
-implementado e o que vem a seguir.
 
 ## Rodando localmente
 
@@ -42,15 +39,7 @@ corepack pnpm install
 corepack pnpm run dev
 ```
 
-Copie `.env.local` (ou configure `NEXT_PUBLIC_API_URL`) apontando para a
-API que este front consome — o projeto não inclui backend.
 
-## Segurança
-
-Headers HTTP (CSP com nonce por requisição, `X-Frame-Options`,
-`X-Content-Type-Options`, HSTS, `Permissions-Policy`) são aplicados em
-`proxy.ts`/`next.config.ts`. Detalhes e motivo de cada um em
-[`docs/SEGURANCA-FRONTEND.md`](docs/SEGURANCA-FRONTEND.md).
 
 ## Licença
 
